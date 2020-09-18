@@ -1,0 +1,27 @@
+InfluxDB:
+    host: 
+    port: 
+    username: 
+    password: 
+    database: 
+    measurement:
+    idField: 
+
+Postgres:
+    host: 
+    port: 
+    username: 
+    password: 
+    database: 
+    table: 
+    idField: 
+
+Kafka:
+  bootstrap.servers: 
+  schema.registry.url: 
+  topic:
+
+Job:
+  TransformationClass: 
+
+

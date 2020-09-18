@@ -1,0 +1,17 @@
+version: "3"
+services:
+  ofelia:
+    container_name: container_scheduler
+    image: mcuadros/ofelia:latest
+    depends_on:
+      - lifeboat
+    command: daemon --docker
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  lifeboat:
+    build: .
+    labels:
+      ofelia.enabled: "true"
+      ofelia.job-exec.lifeboat.schedule: "0 1 * * *"
+      ofelia.job-exec.lifeboat.command: python app.py --job_name scele --mode daily --start_time "now()" --end_time 2d
